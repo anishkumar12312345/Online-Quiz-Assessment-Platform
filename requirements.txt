@@ -1,3 +1,3 @@
-﻿git add Quiz/requirements.txt
-git commit -m "Add xhtml2pdf"
-git push origin main
+Django==5.2.8
+gunicorn==23.0.0
+xhtml2pdf==0.2.17
