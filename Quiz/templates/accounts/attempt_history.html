@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Attempts</title>
+    <style>
+        body {
+            font-family: Poppins;
+            background: #eaf2ff;
+            padding: 40px;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Your Attempted Quizzes</h2>
+
+{% for r in results %}
+<div class="box">
+    <h3>{{ r.quiz.title }}</h3>
+    <p>Score: {{ r.score }}/{{ r.total }}</p>
+    <p>Attempted on: {{ r.submitted_at }}</p>
+</div>
+{% empty %}
+<p>You haven't attempted any quizzes yet.</p>
+{% endfor %}
+
+</body>
+</html>

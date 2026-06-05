@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Question</title>
+    <style>
+        body {
+            font-family: Poppins, Arial;
+            background: #e8f3ff;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box {
+            width: 550px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+        }
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            background: #6f86d6;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        a {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #444;
+            text-decoration: none;
+        }
+        .finish-btn {
+            margin-top: 10px;
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Add Question to: {{ quiz.title }}</h2>
+    <h4>Quiz Code: {{ quiz.code }}</h4>
+
+    {% if messages %}
+        {% for m in messages %}
+            <p style="color: green;">{{ m }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" autocomplete="off"
+>
+        {% csrf_token %}
+
+        <input type="text" name="question_text" placeholder="Enter Question" required>
+
+        <input type="text" name="option_a" placeholder="Option A" required>
+        <input type="text" name="option_b" placeholder="Option B" required>
+        <input type="text" name="option_c" placeholder="Option C" required>
+        <input type="text" name="option_d" placeholder="Option D" required>
+
+        <select name="correct_option" required>
+            <option value="">Select Correct Answer</option>
+            <option value="A">Option A</option>
+            <option value="B">Option B</option>
+            <option value="C">Option C</option>
+            <option value="D">Option D</option>
+        </select>
+
+        <button type="submit">Add Question</button>
+    </form>
+
+    <!-- Back Button -->
+    <a href="{% url 'teacher_dashboard' %}">Back to Dashboard</a>
+
+    <!-- Save Quiz Button -->
+    <a href="{% url 'teacher_dashboard' %}" class="finish-btn">Save & Finish Quiz</a>
+</div>
+
+</body>
+</html>

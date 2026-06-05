@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Online Educational Assessment Platform</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top left, #ff007a, #5a00ff, #000);
+            background-size: 300% 300%;
+            animation: bgShift 10s infinite alternate ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        @keyframes bgShift {
+            from { background-position: 0% 0%; }
+            to   { background-position: 100% 100%; }
+        }
+
+        /* Glowing neon blobs */
+        .blob {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.7;
+            animation: blobAnim 8s infinite alternate ease-in-out;
+        }
+        .blob:nth-child(1) { background: #ff0080; top: 0; left: 0; }
+        .blob:nth-child(2) { background: #00eaff; bottom: 0; right: 0; animation-delay: 2s; }
+        .blob:nth-child(3) { background: #ffea00; top: 30%; left: 70%; animation-delay: 4s; }
+
+        @keyframes blobAnim {
+            from { transform: translateY(0px); }
+            to   { transform: translateY(60px); }
+        }
+
+        /* Title Box */
+        .main-box {
+            margin-top: 8vh;
+            width: 95%;
+            max-width: 950px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 25px;
+            padding: 45px;
+            text-align: center;
+            z-index: 5;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+.title-line{color:yellow;}
+     
+
+
+        /* Big Title */
+        .title {
+            font-size: 42px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 1.2;
+            text-shadow: 0 0 12px rgba(255,255,255,0.6),
+                         0 0 25px rgba(255,0,255,0.4);
+        }
+
+        h2 {
+            color: #ffe7ff;
+            font-size: 20px;
+            margin-top: 12px;
+        }
+
+        .aim-text {
+            color: #ffdfff;
+            font-size: 17px;
+            margin-top: 10px;
+        }
+
+        .button-box {
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 14px 40px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 12px;
+            margin: 0 15px;
+            color: white;
+            background: linear-gradient(135deg, #ff009d, #ffae00);
+            transition: 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+        }
+
+        .btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Developers Section */
+        .dev-box {
+            margin-top: 40px;
+            width: 85%;
+            max-width: 600px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(14px);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+            z-index: 5;
+            border: 2px solid rgba(255,255,255,0.25);
+        }
+
+        .dev-box h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255,255,255,0.4);
+        }
+
+        .dev-box p {
+            margin-top: 8px;
+            font-size: 17px;
+            color: #ffeaff;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Neon blobs -->
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <!-- Main Box -->
+    <div class="main-box">
+        <div class="title">
+           <div  class="welcome" >YOUR NEXT-GEN ASSESSMENT EXPERIENCE </div> <br>
+           <div  style="word-spacing:10px" class="title-line"> ONLINE EDUCATIONAL 
+             <br>ASSESSMENT PLATFORM</div >
+        </div>
+        <br>
+
+        <h2>Your smart digital system for quizzes, assessments & student evaluation</h2>
+
+        <!-- AIM LINE -->
+        <p class="aim-text">
+           " Our aim is to make the process of conducting and attempting quizzes easy and simple.""
+        </p>
+
+        <div class="button-box">
+            <a href="{% url 'login' %}" class="btn">Login</a>
+            <a href="{% url 'register' %}" class="btn">Register</a>
+        </div>
+    </div>
+
+    <!-- Developers -->
+    <div class="dev-box">
+        <h3>Developed By</h3>
+        <p>
+            <strong>Aniket Rawat</strong><br>
+            <strong>Anish Kumar</strong><br>
+            <strong>Anubhav Binjola</strong>
+        </p>
+    </div>
+
+</body>
+</html>

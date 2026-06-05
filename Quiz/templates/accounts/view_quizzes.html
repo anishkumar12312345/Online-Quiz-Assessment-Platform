@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Quizzes</title>
+    <style>
+        body {
+            background: #eef6ff;
+            font-family: Poppins;
+            padding: 40px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .quiz-box {
+            background: white;
+            width: 500px;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .code {
+            font-weight: bold;
+            color: #6f86d6;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Your Created Quizzes</h2>
+
+{% for quiz in quizzes %}
+<div class="quiz-box">
+    <h3>{{ quiz.title }}</h3>
+    <p class="code">
+    Quiz Code:
+    <a href="{% url 'quiz_results' quiz.code %}" 
+       style="text-decoration:none; color:#6f86d6; font-weight:bold;">
+       {{ quiz.code }}
+    </a>
+</p>
+
+    <p>Created on: {{ quiz.created_at }}</p>
+</div>
+{% empty %}
+<p style="text-align:center;">No quizzes found.</p>
+{% endfor %}
+
+<div class="quiz-box">
+    <h3>{{ quiz.title }}</h3>
+    <p class="code">Quiz Code: {{ quiz.code }}</p>
+    <p>Created on: {{ quiz.created_at }}</p>
+
+{% if quiz.code %}
+    <a href="{% url 'quiz_results' quiz.code %}"
+       style="display:block; margin-top:10px; color:white; background:#6f86d6; padding:10px; text-align:center; border-radius:8px; text-decoration:none;">
+       View Results
+    </a>
+{% else %}
+    <p style="color:red; text-align:center; margin-top:10px;">No quiz code available</p>
+{% endif %}
+
+</div>
+
+
+</body>
+</html>

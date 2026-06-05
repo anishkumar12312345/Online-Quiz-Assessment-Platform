@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Quiz Code</title>
+    <style>
+        body {
+            font-family: Poppins;
+            background: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            width: 360px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #6f86d6;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Enter Quiz Code</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="quiz_code" placeholder="Enter Quiz Code" required>
+        <button type="submit">Start Quiz</button>
+    </form>
+
+    {% if messages %}
+        {% for m in messages %}
+            <p style="color:red;">{{ m }}</p>
+        {% endfor %}
+    {% endif %}
+
+</div>
+
+</body>
+</html>

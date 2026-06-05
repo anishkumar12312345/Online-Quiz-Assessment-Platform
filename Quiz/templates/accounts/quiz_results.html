@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ quiz.title }} - Results</title>
+    <style>
+        body {
+            font-family: Poppins, Arial;
+            background: #f4faff;
+            padding: 40px;
+        }
+        .container {
+            width: 70%;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: #6f86d6;
+            color: white;
+        }
+        h2, h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Results for Quiz: {{ quiz.title }}</h2>
+    <h3>Quiz Code: {{ quiz.code }}</h3>
+    <p><strong>Total Attempts:</strong> {{ total_attempts }}</p>
+
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Score</th>
+            <th>Total</th>
+            <th>Submitted At</th>
+        </tr>
+
+        {% for r in results %}
+        <tr>
+            <td>{{ r.student.username }}</td>
+            <td>{{ r.score }}</td>
+            <td>{{ r.total }}</td>
+            <td>{{ r.submitted_at }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No attempts yet.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'quiz_results_pdf' quiz.code %}" class="btn">Download PDF</a>
+
+</div>
+
+</body>
+</html>

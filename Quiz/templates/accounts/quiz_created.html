@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Created</title>
+    <style>
+        body {
+            font-family: Poppins, Arial;
+            background: #f0fbff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            width: 390px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .code {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 15px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #6f86d6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Quiz Created Successfully!</h2>
+    <p>Your Quiz Code:</p>
+    <div class="code">{{ quiz.code }}</div>
+
+    <a href="{% url 'teacher_dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'add_question' quiz.code %}" class="btn">Add Questions</a>
+
+</div>
+
+</body>
+</html>
