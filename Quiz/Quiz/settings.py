@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-0n953i-xhx$jj6$cy-wl8rke0(7f%=eop#zd)q+9+pyp-^z=4w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "online-quiz-assessment-platform-vayy.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
